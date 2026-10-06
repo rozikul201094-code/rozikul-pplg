@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Cybersecurity | Mohammad Rozikul Bahren</title>
+<meta name="description" content="Portofolio pembelajaran cybersecurity dari nol — proyek, keahlian, dan progres belajar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7FA; --panel:#FFFFFF; --panel-2:#EEF0F5;
+  --text:#171B26; --muted:#5B6478;
+  --accent:#1E8A7A; --accent-2:#C97C1D;
+  --border:#E1E4EC; --shadow:0 1px 2px rgba(23,27,38,.06);
+  --radius:8px; --nav-h:64px;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --display:'Space Grotesk',var(--sans);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1321; --panel:#161F33; --panel-2:#131B2E;
+    --text:#E7ECF5; --muted:#8B95AC;
+    --accent:#3FBFAA; --accent-2:#E8A03D;
+    --border:#26314A; --shadow:0 1px 2px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1321; --panel:#161F33; --panel-2:#131B2E;
+  --text:#E7ECF5; --muted:#8B95AC;
+  --accent:#3FBFAA; --accent-2:#E8A03D;
+  --border:#26314A; --shadow:0 1px 2px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#F6F7FA; --panel:#FFFFFF; --panel-2:#EEF0F5;
+  --text:#171B26; --muted:#5B6478;
+  --accent:#1E8A7A; --accent-2:#C97C1D;
+  --border:#E1E4EC; --shadow:0 1px 2px rgba(23,27,38,.06);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;transition:background .25s ease,color .25s ease;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.15;}
+p{margin:0;}
+button{font-family:inherit;cursor:pointer;}
+input,textarea{font-family:inherit;}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:6rem 0;}
+.section-head{max-width:640px;margin-bottom:3rem;}
+.section-title{font-size:clamp(1.75rem,3.5vw,2.35rem);font-weight:600;}
+.section-sub{color:var(--muted);margin-top:.6rem;font-size:1.05rem;}
+#tentang,#proyek{background:var(--panel-2);}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border);z-index:100;transition:background .25s ease;}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.brand{font-family:var(--mono);font-weight:500;font-size:1rem;letter-spacing:.02em;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:.95rem;color:var(--muted);transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:.75rem;}
+.theme-toggle{background:var(--panel);border:1px solid var(--border);border-radius:999px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;color:var(--text);padding:.25rem .5rem;}
+@media (max-width:860px){
+  .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:1.5rem;gap:1.25rem;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;}
+  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .nav-toggle{display:block;}
+}
+
+
+.hero{padding:calc(var(--nav-h) + 4rem) 0 5rem;}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+.hero-greet{font-family:var(--mono);color:var(--accent);font-size:1rem;margin-bottom:.75rem;}
+.hero-name{font-size:clamp(2.4rem,6vw,4rem);font-weight:700;}
+.hero-role{font-family:var(--mono);color:var(--muted);margin-top:.9rem;font-size:1.02rem;}
+.hero-desc{margin-top:1.4rem;color:var(--muted);max-width:46ch;font-size:1.05rem;}
+.hero-cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;padding:.8rem 1.5rem;border-radius:var(--radius);font-size:.95rem;font-weight:500;border:1px solid transparent;transition:transform .15s ease,border-color .2s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--accent);color:#08110F;}
+.btn-secondary{background:transparent;border-color:var(--border);color:var(--text);}
+
+.terminal{background:var(--panel-2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+.terminal-bar{display:flex;align-items:center;gap:.5rem;padding:.75rem 1rem;background:var(--panel);border-bottom:1px solid var(--border);}
+.dot{width:10px;height:10px;border-radius:50%;}
+.dot-r{background:#E5605A;} .dot-y{background:#E8B84B;} .dot-g{background:#4FBF7A;}
+.terminal-title{margin-left:.5rem;font-family:var(--mono);font-size:.78rem;color:var(--muted);}
+.terminal-body{padding:1.25rem 1.25rem 1.5rem;font-family:var(--mono);font-size:.88rem;min-height:230px;}
+.term-line{white-space:pre-wrap;margin-bottom:.55rem;word-break:break-word;}
+.term-prompt{color:var(--accent);}
+.term-cursor{display:inline-block;width:7px;height:1em;background:var(--accent);vertical-align:text-bottom;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:start;}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+.profile-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+.profile-avatar{width:56px;height:56px;border-radius:12px;background:var(--panel-2);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.6rem;}
+.profile-photo{
+  width:120px;
+  height:120px;
+  object-fit:cover;          /* foto tidak gepeng */
+  border-radius:50%;        /* ganti ke 50% kalau mau bulat */
+  border:2px solid var(--accent);
+  display:block;
+  margin-bottom:1.5rem;
+}
+.profile-info div{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-top:1px solid var(--border);font-size:.88rem;}
+.profile-info div:first-child{border-top:none;}
+.profile-info dt{color:var(--muted);margin:0;}
+.profile-info dd{margin:0;font-family:var(--mono);font-size:.82rem;text-align:right;}
+.about-text h2{margin-bottom:1.25rem;}
+.about-text p{color:var(--muted);margin-bottom:1rem;font-size:1.02rem;}
+.about-text p:last-child{margin-bottom:0;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+@media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.skills-grid{grid-template-columns:1fr;}}
+.skill-card{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:1.5rem;}
+.skill-icon{font-size:1.4rem;margin-bottom:.9rem;}
+.skill-title{font-family:var(--display);font-weight:600;font-size:1.02rem;margin-bottom:.5rem;}
+.skill-desc{color:var(--muted);font-size:.86rem;line-height:1.55;margin-bottom:1.1rem;}
+.skill-level{display:flex;gap:4px;margin-bottom:.45rem;}
+.level-seg{height:4px;flex:1;background:var(--border);border-radius:2px;}
+.level-seg.filled{background:var(--accent);}
+.skill-level-label{font-family:var(--mono);font-size:.72rem;color:var(--muted);}
+
+/* PROJECTS */
+.filter-tabs{display:flex;gap:.75rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.filter-btn{padding:.5rem 1.1rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.83rem;font-family:var(--mono);transition:all .2s ease;}
+.filter-btn.active,.filter-btn:hover{background:var(--accent);color:#08110F;border-color:var(--accent);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+@media (max-width:900px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.projects-grid{grid-template-columns:1fr;}}
+.project-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1.75rem;display:flex;flex-direction:column;transition:border-color .2s ease;}
+.project-card:hover{border-color:var(--accent);}
+.project-icon{font-size:1.4rem;margin-bottom:1rem;}
+.project-cat{font-family:var(--mono);font-size:.7rem;color:var(--accent-2);margin-bottom:.6rem;}
+.project-title{font-size:1.08rem;font-weight:600;font-family:var(--display);margin-bottom:.6rem;}
+.project-desc{color:var(--muted);font-size:.88rem;line-height:1.55;margin-bottom:1.25rem;flex:1;}
+.project-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem;}
+.tag{font-family:var(--mono);font-size:.7rem;background:var(--panel-2);border:1px solid var(--border);padding:.25rem .6rem;border-radius:4px;color:var(--muted);}
+.project-link{font-size:.87rem;font-weight:500;color:var(--accent);border-bottom:1px solid transparent;align-self:flex-start;}
+.project-link:hover{border-color:var(--accent);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+.info-row{display:flex;gap:.85rem;align-items:flex-start;padding:.85rem 0;border-top:1px solid var(--border);}
+.info-row:first-child{border-top:none;}
+.info-icon{font-size:1.05rem;}
+.info-label{font-size:.7rem;color:var(--muted);font-family:var(--mono);}
+.info-value{font-size:.9rem;margin-top:.15rem;}
+.contact-form{display:flex;flex-direction:column;gap:1.25rem;}
+.form-group{display:flex;flex-direction:column;gap:.5rem;}
+.form-group label{font-size:.85rem;color:var(--muted);}
+.form-group input,.form-group textarea{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;color:var(--text);font-size:.95rem;}
+.form-group textarea{resize:vertical;min-height:120px;}
+.btn-submit{align-self:flex-start;background:var(--accent);color:#08110F;border:none;padding:.85rem 1.75rem;border-radius:var(--radius);font-weight:600;font-size:.95rem;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{color:var(--muted);font-size:.85rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{color:var(--muted);font-size:.85rem;}
+.footer-links a:hover{color:var(--text);}
+.to-top{background:var(--panel);border:1px solid var(--border);border-radius:999px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#beranda" class="brand">$ whoami</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema terang/gelap">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header id="beranda" class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-greet">Halo, saya</p>
+      <h1 class="hero-name">Mohammad Rozikul Bahren</h1>
+      <p class="hero-role">Pelajar Cybersecurity · Belajar dari Nol</p>
+      <p class="hero-desc">Sedang membangun fondasi di jaringan komputer, sistem Linux, dan keamanan aplikasi web — satu modul, satu lab, dan satu catatan setiap minggu.</p>
+      <div class="hero-cta">
+        <a href="#proyek" class="btn btn-primary">Lihat Proyek</a>
+        <a href="#tentang" class="btn btn-secondary">About Me</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <span class="terminal-title">whoami.sh</span>
+      </div>
+      <div class="terminal-body" id="terminalBody"></div>
+    </div>
+  </div>
+</header>
+
+<section id="tentang" class="section">
+  <div class="container about-grid">
+    <div class="profile-card">
+      <img src="https://cdn.phototourl.com/member/2026-10-02-dd6d212f-75f7-4598-9902-8b7748f17c3c.jpg" alt="Foto Mohammad Rozikul Bahren" class="profile-photo">
+      <dl class="profile-info">
+        <div><dt>Nama</dt><dd>Mohammad Rozikul Bahren</dd></div>
+        <div><dt>Fokus</dt><dd>Software Development</dd></div>
+        <div><dt>Sekolah/Kampus</dt><dd>SMK KRIAN 1</dd></div>
+        <div><dt>Lokasi</dt><dd>Sidoarjo, Jawa Timur</dd></div>
+      </dl>
+    </div>
+    <div class="about-text">
+      <h2 class="section-title">About Me</h2>
+      <p>I am new to the field of computer science, and I want to learn more about software development.</p>
+      <p>Right now, I am focusing on learning coding and computer logic.</p>
+      <p>And I believe that hard work will pay off.</p>
+    </div>
+  </div>
+</section>
+
+<section id="keahlian" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">My Skills</h2>
+      <p class="section-sub">The foundation I am building, one step at a time.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-title">Dasar Jaringan</div>
+        <p class="skill-desc">Memahami model TCP/IP, protokol umum, dan cara data berpindah di jaringan.</p>
+        <div class="skill-level"><div class="level-seg filled"></div><div class="level-seg"></div><div class="level-seg"></div><div class="level-seg"></div></div>
+        <span class="skill-level-label">Baru mulai</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🐧</div>
+        <div class="skill-title">Linux &amp; Command Line</div>
+        <p class="skill-desc">Terbiasa dengan perintah dasar Linux untuk navigasi, file, dan proses.</p>
+        <div class="skill-level"><div class="level-seg filled"></div><div class="level-seg filled"></div><div class="level-seg"></div><div class="level-seg"></div></div>
+        <span class="skill-level-label">Sedang berlatih</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔒</div>
+        <div class="skill-title">Keamanan Web Dasar</div>
+        <p class="skill-desc">Mengenal konsep kerentanan umum, mengikuti checklist gaya OWASP Top 10.</p>
+        <div class="skill-level"><div class="level-seg filled"></div><div class="level-seg"></div><div class="level-seg"></div><div class="level-seg"></div></div>
+        <span class="skill-level-label">Baru mulai</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🧰</div>
+        <div class="skill-title">Tools Keamanan</div>
+        <p class="skill-desc">Mulai mengenal Wireshark, Nmap, dan Burp Suite untuk analisis dasar.</p>
+        <div class="skill-level"><div class="level-seg filled"></div><div class="level-seg"></div><div class="level-seg"></div><div class="level-seg"></div></div>
+        <span class="skill-level-label">Baru mulai</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyek" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Proyek Saya</h2>
+      <p class="section-sub">Catatan dan latihan dari proses belajar, bukan proyek besar — tapi jujur soal prosesnya.</p>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="semua">Semua</button>
+      <button class="filter-btn" data-filter="ctf">CTF</button>
+      <button class="filter-btn" data-filter="lab">Lab</button>
+      <button class="filter-btn" data-filter="tulisan">Tulisan</button>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card" data-category="ctf">
+        <div class="project-icon">🚩</div>
+        <div class="project-cat">Capture The Flag</div>
+        <div class="project-title">Write-up CTF Pertama</div>
+        <p class="project-desc">Dokumentasi proses penyelesaian challenge CTF level pemula, dari analisis soal sampai flag ditemukan.</p>
+        <div class="project-tags"><span class="tag">CTF</span><span class="tag">Write-up</span></div>
+        <a href="#" class="project-link">Lihat detail</a>
+      </div>
+      <div class="project-card" data-category="lab">
+        <div class="project-icon">🖥️</div>
+        <div class="project-cat">Home Lab</div>
+        <div class="project-title">Home Lab Virtual</div>
+        <p class="project-desc">Lab virtual sederhana dengan VirtualBox untuk latihan konfigurasi jaringan dan sistem operasi.</p>
+        <div class="project-tags"><span class="tag">VirtualBox</span><span class="tag">Jaringan</span></div>
+        <a href="#" class="project-link">Lihat detail</a>
+      </div>
+      <div class="project-card" data-category="tulisan">
+        <div class="project-icon">📝</div>
+        <div class="project-cat">Catatan Belajar</div>
+        <div class="project-title">Dasar Membaca Traffic dengan Wireshark</div>
+        <p class="project-desc">Rangkuman pribadi tentang cara membaca dan menyaring traffic jaringan menggunakan Wireshark.</p>
+        <div class="project-tags"><span class="tag">Wireshark</span><span class="tag">Catatan</span></div>
+        <a href="#" class="project-link">Lihat detail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Kontak Saya</h2>
+      <p class="section-sub">Terbuka untuk diskusi, koreksi, atau sekadar bertukar catatan belajar.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-row">
+          <span class="info-icon">📧</span>
+          <div><div class="info-label">Email</div><div class="info-value">rozikul201094@gmail.com
+
+          </div></div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📍</span>
+          <div><div class="info-label">Lokasi</div><div class="info-value">Sidoarjo, Jawa Timur, Indonesia</div></div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">💻</span>
+          <div><div class="info-label">GitHub</div><div class="info-value">github.com/usernamekamu</div></div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="cfName">Nama</label>
+          <input type="text" id="cfName" required>
+        </div>
+        <div class="form-group">
+          <label for="cfEmail">Email</label>
+          <input type="email" id="cfEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="cfMessage">Pesan</label>
+          <textarea id="cfMessage" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-copy">© <span id="year"></span> Mohammad Rozikul Bahren. Portofolio pembelajaran cybersecurity.</span>
+    <div class="footer-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  function isDark(){
+    var attr = root.getAttribute('data-theme');
+    if(attr === 'dark') return true;
+    if(attr === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function syncIcon(){ themeBtn.textContent = isDark() ? '☀️' : '🌙'; }
+  function getStored(){ try{ return localStorage.getItem('portfolio-theme'); }catch(e){ return null; } }
+  function setStored(v){ try{ localStorage.setItem('portfolio-theme', v); }catch(e){} }
+  var stored = getStored();
+  if(stored){ root.setAttribute('data-theme', stored); }
+  syncIcon();
+  themeBtn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    setStored(next);
+    syncIcon();
+  });
+})();
+
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    navToggle.textContent = open ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      navToggle.textContent = '☰';
+    });
+  });
+})();
+
+(function(){
+  var body = document.getElementById('terminalBody');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seq = [
+    {type:'cmd', text:'whoami'},
+    {type:'out', text:'mohammad_rozikul_bahren'},
+    {type:'cmd', text:'cat fokus.txt'},
+    {type:'out', text:'Jaringan · Linux · Keamanan Web · CTF'},
+    {type:'cmd', text:'status --belajar'},
+    {type:'out', text:'pemula: true  |  konsisten: true'}
+  ];
+  function typeInto(el, text, speed){
+    return new Promise(function(resolve){
+      var i = 0;
+      (function step(){
+        if(i < text.length){
+          el.textContent += text[i];
+          i++;
+          setTimeout(step, speed);
+        } else { resolve(); }
+      })();
+    });
+  }
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  async function run(){
+    for(var idx = 0; idx < seq.length; idx++){
+      var item = seq[idx];
+      var line = document.createElement('div');
+      line.className = 'term-line';
+      if(item.type === 'cmd'){
+        var prompt = document.createElement('span');
+        prompt.className = 'term-prompt';
+        prompt.textContent = '$ ';
+        line.appendChild(prompt);
+        var cmdSpan = document.createElement('span');
+        line.appendChild(cmdSpan);
+        body.appendChild(line);
+        if(reduced){ cmdSpan.textContent = item.text; } else { await typeInto(cmdSpan, item.text, 38); }
+        await wait(220);
+      } else {
+        line.textContent = item.text;
+        line.style.color = 'var(--muted)';
+        body.appendChild(line);
+        await wait(180);
+      }
+    }
+    var cursorLine = document.createElement('div');
+    cursorLine.className = 'term-line';
+    var promptEnd = document.createElement('span');
+    promptEnd.className = 'term-prompt';
+    promptEnd.textContent = '$ ';
+    cursorLine.appendChild(promptEnd);
+    var cursor = document.createElement('span');
+    cursor.className = 'term-cursor';
+    cursorLine.appendChild(cursor);
+    body.appendChild(cursorLine);
+  }
+  run();
+})();
+
+(function(){
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.project-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-filter');
+      cards.forEach(function(card){
+        var show = cat === 'semua' || card.getAttribute('data-category') === cat;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('cfName').value.trim();
+  var email = document.getElementById('cfEmail').value.trim();
+  var msg = document.getElementById('cfMessage').value.trim();
+  var subject = encodeURIComponent('Pesan dari Portofolio - ' + name);
+  var body = encodeURIComponent(msg + '\n\nDari: ' + name + ' (' + email + ')');
+  window.location.href = 'mailto:emailkamu@example.com?subject=' + subject + '&body=' + body;
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('toTop').addEventListener('click', function(){
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
